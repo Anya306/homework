@@ -1,4 +1,4 @@
-a, b = map(int, (input().split()))
+'''a, b = map(int, (input().split()))
 print(a + b, a - b, a * b, sep='\n') # первая задача
 
 n = input()
@@ -44,7 +44,11 @@ while n > 0:
 print(s)
 
 # задача 5
+'''
 
+mas = list(map(int, input().split()))
+s = (mas[0] + 1) * mas[0]/2
+print(sum(mas) - 2*mas[0])
 
 
 
