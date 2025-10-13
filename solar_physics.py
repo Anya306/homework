@@ -159,20 +159,40 @@ def vtoroy_zakon_Keplera(body, central_body):
     v_sector = (body.Vx ** 2 + body.Vy ** 2) * R * sin_a
     return v_sector
 
-def check_vtoroy_zakon_Keplera(body, central_body, dt):
-    delta_w = 0
-    sr_w = vtoroy_zakon_Keplera(body, central_body)
-
-        vtoroy_zakon_Keplera(body, central_body)
-
-mas = [0] * len(space_objects)
-for t in range(dt):
-    for i in range(len(space_objects)):
-        w = vtoroy_zakon_Keplera(space_objects[i], central_body)
-
-
 
 if __name__ == "__main__":
     print("This module is not for direct call!")
 
+
+
+star = Star()
+star.m = 1.989e30
+star.x = 0
+star.y = 0
+
+planet = Planet()
+planet.m = 5.972e24
+planet.x = 1.496e11
+planet.y = 0
+planet.Vx = 0
+planet.Vy = 29780
+
+space_objects = [planet]
+
+dt = 3600
+central_body = star
+
+mas = []
+for i in range(len(space_objects)):
+    mas.append([0] * dt)
+delta = [0] * len(space_objects)
+for t in range(dt):
+    for i in range(len(space_objects)):
+            mas[i][t] = vtoroy_zakon_Keplera(space_objects[i], central_body)
+    recalculate_space_objects_positions(space_objects, t)
+for j in range(len(space_objects)):
+    sr = sum(mas[j])/dt
+    delta[j] = max(sr - min(mas[j]), max(mas[j]) - sr)
+
+print(delta)
 
