@@ -39,7 +39,6 @@ while len(deque0) > 0:
     else:
         res.append(deque0[0])
         deque0.popleft()
-    print(deque1, deque0)
 while len(deque1) > 0:
     res.append(deque1[0])
     deque1.popleft()
