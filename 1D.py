@@ -1,5 +1,5 @@
 class Vector:
-    def __init__(self, x, y, z):
+    def __init__(self, x, y=None, z=None):
         assert isinstance(x, (int, float))
         self.x = x
 
@@ -69,6 +69,5 @@ m = max_square(points)
 print(m)
 # задание 1
 
-
-
+# спасибо дипсику за помощь с правильным считыванием данных в нужном формате: {x, y, z}
 
